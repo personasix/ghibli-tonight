@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghibli Tonight?</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1>Ghibli Tonight?</h1>
+        <p>Find a Studio Ghibli movie to watch tonight.</p>
+
+        <button id="pick-movie" type="button" disabled>Pick a movie</button>
+        <p id="movie-status" role="status">Loading the film list...</p>
+
+        <article id="movie-card" aria-labelledby="movie-title" hidden>
+            <h2 id="movie-title"></h2>
+            <div id="movie-poster"></div>
+            <p id="movie-details"></p>
+            <p id="movie-description"></p>
+        </article>
+    </main>
+</body>
+</html>
