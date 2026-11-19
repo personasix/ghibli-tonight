@@ -1,0 +1,148 @@
+:root {
+  --cream: #fff6e5;
+  --paper: #fffcf5;
+  --forest: #263a2d;
+  --muted-green: #526455;
+  --sage: #b9d4a5;
+  --sage-hover: #a7c792;
+  --border: #e6d8bf;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--forest);
+  font-family: "Nunito", sans-serif;
+  line-height: 1.6;
+}
+
+main {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 8vw, 5rem) 1.25rem 3rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+main > p:first-of-type {
+  margin: 0.85rem 0 1.5rem;
+  color: var(--muted-green);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+#pick-movie {
+  padding: 0.7rem 1.5rem;
+  border: 2px solid var(--forest);
+  border-radius: 999px;
+  background: var(--sage);
+  color: var(--forest);
+  box-shadow: 0 4px 0 var(--forest);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+#pick-movie:hover:not(:disabled) {
+  background: var(--sage-hover);
+}
+
+#pick-movie:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--forest);
+}
+
+#pick-movie:focus-visible {
+  outline: 3px solid var(--forest);
+  outline-offset: 5px;
+}
+
+#pick-movie:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+#movie-status {
+  margin: 1rem 0;
+  color: var(--muted-green);
+  font-size: 0.9rem;
+}
+
+#movie-card:not([hidden]) {
+  display: grid;
+  grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
+  grid-template-areas:
+    "poster title"
+    "poster details"
+    "poster description";
+  grid-template-rows: auto auto 1fr;
+  gap: 0.5rem 1.5rem;
+  align-items: start;
+  margin-top: 1.5rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  background: var(--paper);
+  box-shadow: 0 8px 24px rgb(79 55 25 / 8%);
+  text-align: left;
+}
+
+#movie-poster {
+  grid-area: poster;
+}
+
+#movie-poster img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.85rem;
+}
+
+#movie-title {
+  grid-area: title;
+  margin: 0;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+#movie-details {
+  grid-area: details;
+  justify-self: start;
+  margin: 0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: #e8efd9;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+#movie-description {
+  grid-area: description;
+  margin: 0.25rem 0 0;
+}
+
+@media (max-width: 560px) {
+  #movie-card:not([hidden]) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "poster"
+      "details"
+      "description";
+    grid-template-rows: auto;
+    gap: 0.75rem;
+  }
+}
